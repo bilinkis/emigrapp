@@ -1,7 +1,23 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./*"]
+      "@components/*": [
+        "components/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ]
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+, "pages/_app.js"  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
