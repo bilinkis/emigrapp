@@ -217,8 +217,8 @@ const Form = () => {
                     </form>
                 </>
             ) : <>
-                    <h1 className='text-2xl text-black'>Felicidades, podes usar Emigrapp para tu proceso migratorio!</h1>
-                    <p>A la brevedad nos pondremos en contacto con vos para contarte como seguir.</p>
+                    <h1 className='text-2xl text-black'>Felicidades {formData.name}, podes usar Emigrapp para tu proceso migratorio!</h1>
+                    <p>A la brevedad nos pondremos en contacto con vos (a {formData.email}) para contarte como seguir.</p>
             </>}
         </div>
     );
