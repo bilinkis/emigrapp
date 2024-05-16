@@ -24,6 +24,8 @@ const Header = () => {
                             </Link>
                         </li>
                         )}
+                        {router.pathname === '/' && (
+                            <>
                         <li className="relative group">
                             <ScrollLink to="description" smooth={true} offset={-72} className="cursor-pointer">
                                 <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Sobre Nosotros</span>
@@ -39,7 +41,9 @@ const Header = () => {
                             <ScrollLink to="contact" smooth={true} offset={-72} className="cursor-pointer">
                                 <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Contáctanos</span>
                             </ScrollLink>
-                        </li>
+                                </li>
+                            </>
+                            )}
                     </ul>
                 </nav>
             </div>
