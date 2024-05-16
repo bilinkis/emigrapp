@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>Plataforma Integral de Emigración</title>
+                <title>Emigrapp</title>
                 <meta name="description" content="Acompañamos todo el proceso de emigración." />
                 <link rel="icon" href="/icon.ico" />
             </Head>
