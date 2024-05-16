@@ -1,14 +1,17 @@
 import { Link as ScrollLink } from 'react-scroll';
+import Link from 'next/link';
 import Image from 'next/image';
 
 const Header = () => {
     return (
         <header className="bg-gradient-to-r from-blue-500 to-indigo-800 text-white py-6 sticky top-0 z-50 shadow-lg">
             <div className="container mx-auto flex justify-between items-center">
+                <Link href="/">
                 <div className="flex items-center">
                     <Image src="/images/logo.webp" alt="Emigrapp Logo" width={60} height={60} className="mr-3" />
                     <h1 className="text-3xl font-bold">Emigrapp</h1>
-                </div>
+                    </div>
+                </Link>
                 <nav>
                     <ul className="flex space-x-6">
                         <li className="relative group">
