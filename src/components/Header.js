@@ -16,11 +16,7 @@ const Header = () => {
                                 <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Sobre Nosotros</span>
                             </ScrollLink>
                         </li>
-                        <li className="relative group">
-                            <ScrollLink to="features" smooth={true} offset={-72} className="cursor-pointer">
-                                <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Características</span>
-                            </ScrollLink>
-                        </li>
+                       
                         <li className="relative group">
                             <ScrollLink to="testimonials" smooth={true} offset={-72} className="cursor-pointer">
                                 <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Testimonios</span>
