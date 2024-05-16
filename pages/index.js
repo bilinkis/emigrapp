@@ -10,7 +10,7 @@ export default function Home() {
         <div>
             <Head>
                 <title>Emigrapp</title>
-                <meta name="description" content="Acompañamos todo el proceso de emigración." />
+                <meta name="description" content="Acompañamos todo tu proceso de emigración." />
                 <link rel="icon" href="/icon.ico" />
             </Head>
             <Header />
