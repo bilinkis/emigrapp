@@ -11,7 +11,7 @@ export default function Home() {
             <Head>
                 <title>Plataforma Integral de Emigración</title>
                 <meta name="description" content="Acompañamos todo el proceso de emigración." />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/icon.ico" />
             </Head>
             <Header />
             <main>
