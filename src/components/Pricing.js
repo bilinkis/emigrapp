@@ -45,8 +45,7 @@ const Pricing = () => {
                             <ul className="text-gray-600 flex-grow">
                                 <li className="mb-2">✓ Todas las funcionalidades del plan Premium</li>
                                 <li className="mb-2">✓ Solicitud de NIE y Ciudadanía para casos complejos.</li>
-                                <li className="mb-2">✓ Gamificación de pasos para emigrar, avanzá por tu cuenta!</li>
-                                <li className="mb-2">✓ Acompañamiento 1 a 1 durante todas las etapas del proceso.</li>
+                                <li className="mb-2">✓ Paso a paso del proceso emigratorio, avanzá por tu cuenta!</li>
                             </ul>
                             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">
                                 Me interesa
