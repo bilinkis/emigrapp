@@ -4,15 +4,16 @@ import { PrevArrow, NextArrow } from './CustomArrows';
 
 const features = [
     {
-        icon: FaUserTie,
-        title: "Asesoramiento personalizado",
-        description: "Recibe ayuda personalizada para tu proceso de emigración."
-    },
-    {
         icon: FaPassport,
         title: "Información sobre visas y permisos",
         description: "Mantente actualizado con la información más reciente."
     },
+    {
+        icon: FaUserTie,
+        title: "Asesoramiento personalizado",
+        description: "Recibe ayuda personalizada para tu proceso de emigración."
+    },
+   
     {
         icon: FaMapMarkedAlt,
         title: "Guías detalladas",
@@ -57,7 +58,7 @@ const About = () => {
     return (
         <section id="description" className="py-16 bg-white text-gray-800">
             <div className="container mx-auto text-center">
-                <h2 className="text-4xl font-bold mb-6">Sobre Nosotros</h2>
+
                 
                 <Slider {...settings}>
                     {features.map((feature, index) => (

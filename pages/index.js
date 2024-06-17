@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '../src/components/Header';
 import About from '../src/components/About';
+import Pricing from '../src/components/Pricing';
 import Testimonials from '../src/components/Testimonials';
 import CallToAction from '../src/components/CallToAction';
 import Footer from '../src/components/Footer';
@@ -16,6 +17,7 @@ export default function Home() {
             <Header />
             <main>
                 <About />
+                <Pricing />
                 <Testimonials />
                 <CallToAction />
             </main>
