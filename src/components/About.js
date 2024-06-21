@@ -13,7 +13,7 @@ const features = [
         title: "Asesoramiento personalizado",
         description: "Recibe ayuda personalizada para tu proceso de emigración."
     },
-   
+
     {
         icon: FaMapMarkedAlt,
         title: "Guías detalladas",
@@ -28,11 +28,13 @@ const features = [
 
 const About = () => {
     const settings = {
+        autoplay: true,
+        autoplaySpeed: 5000,
         dots: true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         responsive: [
@@ -59,7 +61,7 @@ const About = () => {
         <section id="description" className="py-16 bg-white text-gray-800">
             <div className="container mx-auto text-center">
 
-                
+
                 <Slider {...settings}>
                     {features.map((feature, index) => (
                         <div key={index} className="px-4">
