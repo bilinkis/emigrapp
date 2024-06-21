@@ -57,6 +57,7 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(formData);
         setIsLoading(true);
         setFormSent(true);
         setProgress(0);
@@ -200,46 +201,7 @@ const Form = () => {
                                 <label htmlFor="lifestyle">Cambio de Estilo de Vida</label>
                             </div>
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">Documentación con la que ya cuentas</label>
-                            <div className="flex items-center mb-2">
-                                <input
-                                    type="checkbox"
-                                    id="passport"
-                                    name="documentation"
-                                    value="Pasaporte Europeo"
-                                    checked={formData.documentation.includes('Pasaporte Europeo')}
-                                    onChange={handleChange}
-                                    className="mr-2"
 
-                                />
-                                <label htmlFor="passport">Pasaporte Europeo</label>
-                            </div>
-                            <div className="flex items-center mb-2">
-                                <input
-                                    type="checkbox"
-                                    id="NIE"
-                                    name="documentation"
-                                    value="NIE"
-                                    checked={formData.documentation.includes('NIE')}
-                                    onChange={handleChange}
-                                    className="mr-2"
-                                />
-                                <label htmlFor="NIE">Número de Identificación Extranjero</label>
-                            </div>
-                            <div className="flex items-center mb-2">
-                                <input
-                                    type="checkbox"
-                                    id="workPermit"
-                                    name="documentation"
-                                    value="Permiso de Trabajo"
-                                    checked={formData.documentation.includes('Permiso de Trabajo')}
-                                    onChange={handleChange}
-                                    className="mr-2"
-                                />
-                                <label htmlFor="workPermit">Permiso de Trabajo</label>
-                            </div>
-                        </div>
                         <div className="mb-4">
                             <label className="block text-gray-700 mb-2">Tienes algún familiar directo (padres, abuelos, bisabuelos) que hayan nacido en España o tengan nacionalidad Española?</label>
                             <div className="flex items-center mb-2">
@@ -268,6 +230,48 @@ const Form = () => {
                                 <label htmlFor="no">No</label>
                             </div>
                         </div>
+                        {formData.family === 'true' && (
+                            <div className="mb-4">
+                                <label className="block text-gray-700 mb-2">Documentación con la que ya cuentas</label>
+                                <div className="flex items-center mb-2">
+                                    <input
+                                        type="checkbox"
+                                        id="passport"
+                                        name="documentation"
+                                        value="Pasaporte Europeo"
+                                        checked={formData.documentation.includes('Pasaporte Europeo')}
+                                        onChange={handleChange}
+                                        className="mr-2"
+
+                                    />
+                                    <label htmlFor="passport">Pasaporte Europeo</label>
+                                </div>
+                                <div className="flex items-center mb-2">
+                                    <input
+                                        type="checkbox"
+                                        id="NIE"
+                                        name="documentation"
+                                        value="NIE"
+                                        checked={formData.documentation.includes('NIE')}
+                                        onChange={handleChange}
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="NIE">Número de Identificación Extranjero</label>
+                                </div>
+                                <div className="flex items-center mb-2">
+                                    <input
+                                        type="checkbox"
+                                        id="workPermit"
+                                        name="documentation"
+                                        value="Permiso de Trabajo"
+                                        checked={formData.documentation.includes('Permiso de Trabajo')}
+                                        onChange={handleChange}
+                                        className="mr-2"
+                                    />
+                                    <label htmlFor="workPermit">Permiso de Trabajo</label>
+                                </div>
+                            </div>
+                        )}
                         <div className="mb-4">
                             <label className="block text-gray-700 mb-2" htmlFor="additionalInfo">Información Adicional</label>
                             <textarea
@@ -279,7 +283,7 @@ const Form = () => {
                                 rows="4"
                             />
                         </div>
-                        {(formData.documentation.length > 0 || formData.family === 'true') && (
+                        {(formData.documentation.length > 0 && formData.family === 'true') && (
                             <div className="mb-4">
                                 <h2 className="text-2xl font-bold mb-6 text-center">Subir documentación</h2>
                                 {formData.documentation.includes('Pasaporte Europeo') && (
@@ -293,6 +297,7 @@ const Form = () => {
                                             className="w-full px-3 py-2 border rounded"
                                             multiple
                                             accept='application/pdf, image/*'
+                                            required
                                         />
                                     </>
                                 )}
@@ -307,6 +312,7 @@ const Form = () => {
                                             className="w-full px-3 py-2 border rounded"
                                             multiple
                                             accept='application/pdf, image/*'
+                                            required
                                         />
                                     </>
                                 )}
@@ -321,6 +327,7 @@ const Form = () => {
                                             className="w-full px-3 py-2 border rounded"
                                             multiple
                                             accept='application/pdf, image/*'
+                                            required
                                         />
                                     </>
                                 )}
@@ -335,6 +342,7 @@ const Form = () => {
                                             className="w-full px-3 py-2 border rounded"
                                             multiple
                                             accept='application/pdf, image/*'
+                                            required
                                         />
                                     </>
                                 )}
@@ -350,16 +358,17 @@ const Form = () => {
             ) : (
                 <>
                     <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-8" onClick={() => { setFormSent(false); setIsLoading(false) }}>Volver al formulario</button>
-                    {formData.documentation.length === 0 ? (
+                    {(formData.documentation.length === 0 && formData.family === 'true') ? (
                         <>
                             <h2 className='text-2xl font-bold mb-6 text-center mt-12'>Tu caso es complejo, te recomendamos contratar nuestro plan Full.</h2>
                             <Pricing route={router.pathname} suggested="full" />
                         </>
-                    ) : formData.documentation.includes('Pasaporte Europeo') || formData.documentation.includes('NIE') || formData.documentation.includes('Permiso de Trabajo') || formData.family === 'true' ? (
+                    ) : formData.documentation.includes('Pasaporte Europeo') || formData.documentation.includes('NIE') || formData.documentation.includes('Permiso de Trabajo') && formData.family === 'true' ? (
                         <>
                             {isLoading ? (
                                 <>
                                     <h2 className="text-2xl font-bold mb-6 text-center mt-12">Enviando tus archivos al Consulado</h2>
+                                    <Loading />
                                     <ProgressBar progress={progress} />
                                 </>) : (
                                 <>
@@ -369,6 +378,11 @@ const Form = () => {
                                     <Pricing route={router.pathname} suggested="premium" />
                                 </>
                             )}
+                        </>
+                    ) : (formData.family === "false" || formData.employmentStatus === "Student") ? (
+                        <>
+                            <h2 className="text-2xl font-bold mb-6 text-center mt-12">Por el momento no podremos ayudarte, te enviaremos novedades a tu email cuando puedas usar Emigrapp. Gracias!</h2>
+
                         </>
                     ) : null}
                 </>
