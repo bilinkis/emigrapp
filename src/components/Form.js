@@ -3,6 +3,8 @@ import Loading from "./Loading";
 import ProgressBar from './ProgressBar';
 import Pricing from './Pricing';
 import { useRouter } from 'next/router';
+import Files from './Files';
+import Upload from './Upload';
 
 const Form = () => {
     const router = useRouter();
@@ -20,6 +22,9 @@ const Form = () => {
         documents: {},
         family: ''
     });
+    const [paid, setPaid] = useState(false);
+    const [uploaded, setUploaded] = useState(false);
+
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -75,7 +80,7 @@ const Form = () => {
                     return prev + random;
                 }
             });
-        }, 200);
+        }, 300);
     };
 
     return (
@@ -283,71 +288,6 @@ const Form = () => {
                                 rows="4"
                             />
                         </div>
-                        {(formData.documentation.length > 0 && formData.family === 'true') && (
-                            <div className="mb-4">
-                                <h2 className="text-2xl font-bold mb-6 text-center">Subir documentación</h2>
-                                {formData.documentation.includes('Pasaporte Europeo') && (
-                                    <>
-                                        <label htmlFor="passport" className="btn">Pasaporte Europeo</label>
-                                        <input
-                                            type="file"
-                                            id="passport"
-                                            name="passport"
-                                            onChange={handleFileChange}
-                                            className="w-full px-3 py-2 border rounded"
-                                            multiple
-                                            accept='application/pdf, image/*'
-                                            required
-                                        />
-                                    </>
-                                )}
-                                {formData.documentation.includes('NIE') && (
-                                    <>
-                                        <label htmlFor="nie" className="btn">Certificado de NIE</label>
-                                        <input
-                                            type="file"
-                                            id="nie"
-                                            name="nie"
-                                            onChange={handleFileChange}
-                                            className="w-full px-3 py-2 border rounded"
-                                            multiple
-                                            accept='application/pdf, image/*'
-                                            required
-                                        />
-                                    </>
-                                )}
-                                {formData.documentation.includes('Permiso de Trabajo') && (
-                                    <>
-                                        <label htmlFor="trabajo" className="btn">Permiso de trabajo</label>
-                                        <input
-                                            type="file"
-                                            id="trabajo"
-                                            name="trabajo"
-                                            onChange={handleFileChange}
-                                            className="w-full px-3 py-2 border rounded"
-                                            multiple
-                                            accept='application/pdf, image/*'
-                                            required
-                                        />
-                                    </>
-                                )}
-                                {formData.family === 'true' && (
-                                    <>
-                                        <label htmlFor="familiar" className="btn">Documento que acredite el parentesco</label>
-                                        <input
-                                            type="file"
-                                            id="familiar"
-                                            name="familiar"
-                                            onChange={handleFileChange}
-                                            className="w-full px-3 py-2 border rounded"
-                                            multiple
-                                            accept='application/pdf, image/*'
-                                            required
-                                        />
-                                    </>
-                                )}
-                            </div>
-                        )}
                         <div className="text-center">
                             <button type="submit" className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                                 {isLoading ? <Loading /> : "Enviar"}
@@ -357,27 +297,24 @@ const Form = () => {
                 </>
             ) : (
                 <>
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-8" onClick={() => { setFormSent(false); setIsLoading(false) }}>Volver al formulario</button>
-                    {(formData.documentation.length === 0 && formData.family === 'true') ? (
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-8" onClick={() => { setFormSent(false); setIsLoading(false); setPaid(false); setUploaded(false); setProgress(0) }}>Volver al formulario</button>
+                    {(formData.documentation.length === 0 && formData.family === 'true' && formData.employmentStatus !== "Student" && !paid) ? (
                         <>
                             <h2 className='text-2xl font-bold mb-6 text-center mt-12'>Tu caso es complejo, te recomendamos contratar nuestro plan Full.</h2>
-                            <Pricing route={router.pathname} suggested="full" />
+                            <Pricing route={router.pathname} suggested="full" setPaid={setPaid} />
                         </>
-                    ) : formData.documentation.includes('Pasaporte Europeo') || formData.documentation.includes('NIE') || formData.documentation.includes('Permiso de Trabajo') && formData.family === 'true' ? (
+                    ) : formData.documentation.length > 0 && !paid ? (
                         <>
-                            {isLoading ? (
-                                <>
-                                    <h2 className="text-2xl font-bold mb-6 text-center mt-12">Enviando tus archivos al Consulado</h2>
-                                    <Loading />
-                                    <ProgressBar progress={progress} />
-                                </>) : (
-                                <>
-                                    <h2 className="text-2xl font-bold mb-6 text-center">Archivos enviados con éxito!</h2>
-                                    <p className='text-xl black text-center'>Recibirás un email con los próximos pasos a seguir.</p>
-                                    <p className='text-xl black text-center'>Te recomendamos el plan Premium para hacer el seguimiento de tu proceso de emigración</p>
-                                    <Pricing route={router.pathname} suggested="premium" />
-                                </>
-                            )}
+                            <h2 className='text-2xl font-bold mb-6 text-center mt-12'>Tu caso tiene una complejidad intermedia, te recomendamos contratar nuestro plan Premium.</h2>
+                            <Pricing route={router.pathname} suggested="premium" setPaid={setPaid} />
+                        </>
+                    ) : !uploaded && paid && (formData.family === "true" || (formData.documentation.includes('Pasaporte Europeo') || formData.documentation.includes('NIE') || formData.documentation.includes('Permiso de Trabajo'))) ? (
+                        <>
+                            <Files formData={formData} handleFileChange={handleFileChange} setUploaded={setUploaded} setIsLoading={setIsLoading} />
+                        </>
+                    ) : uploaded && paid ? (
+                        <>
+                            <Upload progress={progress} isLoading={isLoading} />
                         </>
                     ) : (formData.family === "false" || formData.employmentStatus === "Student") ? (
                         <>

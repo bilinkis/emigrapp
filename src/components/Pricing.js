@@ -1,4 +1,6 @@
-const Pricing = ({ route, suggested }) => {
+import Buy from "./Buy";
+
+const Pricing = ({ route, suggested, setPaid }) => {
     return (
         <section id="pricing" className="py-16 pt-24 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800">
             <div className="container mx-auto text-center">
@@ -16,9 +18,7 @@ const Pricing = ({ route, suggested }) => {
                                     <li className="mb-2">✓ Solicitud de NIE y Ciudadanía para casos complejos.</li>
                                     <li className="mb-2">✓ Paso a paso del proceso emigratorio, avanzá por tu cuenta!</li>
                                 </ul>
-                                <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">
-                                    Me interesa
-                                </button>
+                                <Buy setPaid={setPaid} />
                             </div>
                         </div>
 
@@ -32,9 +32,7 @@ const Pricing = ({ route, suggested }) => {
                                 <li className="mb-2">✓ Solicitud de NIE y Ciudadanía (si ya contas con la documentación)</li>
                                 <li className="mb-2">✓ Acceso completo a nuestra comunidad</li>
                             </ul>
-                            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">
-                                Me interesa
-                            </button>
+                            <Buy setPaid={setPaid} />
                         </div>
                     </div>) : (
                         <>
@@ -48,9 +46,7 @@ const Pricing = ({ route, suggested }) => {
                                         <li className="mb-2">✓ Acceso a blog con publicaciones de emigrados</li>
                                         <li className="mb-2">✓ Acceso a información básica sobre el proceso emigratorio</li>
                                     </ul>
-                                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">
-                                        Me interesa
-                                    </button>
+                                    <Buy setPaid={setPaid} />
                                 </div>
                             </div>
 
@@ -64,9 +60,7 @@ const Pricing = ({ route, suggested }) => {
                                         <li className="mb-2">✓ Solicitud de NIE y Ciudadanía (si ya contas con la documentación)</li>
                                         <li className="mb-2">✓ Acceso completo a nuestra comunidad</li>
                                     </ul>
-                                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">
-                                        Me interesa
-                                    </button>
+                                    <Buy setPaid={setPaid} />
                                 </div>
                             </div>
 
@@ -80,9 +74,7 @@ const Pricing = ({ route, suggested }) => {
                                         <li className="mb-2">✓ Solicitud de NIE y Ciudadanía para casos complejos.</li>
                                         <li className="mb-2">✓ Paso a paso del proceso emigratorio, avanzá por tu cuenta!</li>
                                     </ul>
-                                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4">
-                                        Me interesa
-                                    </button>
+                                    <Buy setPaid={setPaid} />
                                 </div>
                             </div>
                         </>
