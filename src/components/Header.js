@@ -40,6 +40,17 @@ const Header = () => {
                                 </Link>
                             </li>
                         )}
+                        <li className="relative group">
+                            <Link href="/comunidad">
+                                <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Comunidad</span>
+                            </Link>
+
+                        </li>
+                        <li className="relative group">
+                            <Link href="/comunidad/foro">
+                                <span className="transition-transform transform hover:scale-110 group-hover:shadow-lg group-hover:bg-white group-hover:text-blue-500 rounded-md px-2 py-1">Foro</span>
+                            </Link>
+                        </li>
                         {router.pathname === '/' && (
                             <>
                                 <li className="relative group">
