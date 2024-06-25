@@ -12,7 +12,7 @@ const App = () => {
     return (
         <div>
             <Head>
-                <title>Emigrapp</title>
+                <title>Emigrapp - Foro</title>
                 <meta name="description" content="Acompañamos todo tu proceso de emigración." />
                 <link rel="icon" href="/icon.ico" />
             </Head>

@@ -7,12 +7,12 @@ export default function Diagnostico() {
     return (
         <div>
             <Head>
-                <title>Emigrapp</title>
+                <title>Emigrapp - Autodiagnóstico</title>
                 <meta name="description" content="Acompañamos todo tu proceso de emigración." />
                 <link rel="icon" href="/icon.ico" />
             </Head>
             <Header />
-            <main className='grow'> 
+            <main className='grow'>
                 <Form />
             </main>
             <Footer />
