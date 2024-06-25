@@ -13,7 +13,7 @@ const Header = () => {
             <div className="container mx-auto flex flex-wrap items-center justify-between px-4 md:px-8">
                 <Link href="/">
                     <div className="flex items-center cursor-pointer">
-                        <Image src="/images/logo.webp" alt="Emigrapp Logo" width={50} height={50} className="mr-2 md:mr-3" />
+                        <Image fetchPriority='high' src="/images/logo.webp" alt="Emigrapp Logo" width={50} height={50} className="mr-2 md:mr-3" />
                         <h1 className="text-2xl md:text-3xl font-bold">Emigrapp</h1>
                     </div>
                 </Link>
