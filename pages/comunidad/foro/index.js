@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from 'src/components/comunidad/foro/Sidebar';
 import PostList from 'src/components/comunidad/foro/PostList';
-import Head from 'next/head';
+import Head from 'src/components/Head';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import PostDetails from 'src/components/comunidad/foro/PostDetails';
@@ -11,11 +11,7 @@ const App = () => {
     const [selectedPost, setSelectedPost] = useState(null);
     return (
         <div>
-            <Head>
-                <title>Emigrapp - Foro</title>
-                <meta name="description" content="Acompañamos todo tu proceso de emigración." />
-                <link rel="icon" href="/icon.ico" />
-            </Head>
+            <Head />
 
             <div className="flex flex-col h-screen">
                 <Header />

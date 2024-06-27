@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from 'src/components/Head';
 import Header from '../src/components/Header';
 import About from '../src/components/About';
 import Pricing from '../src/components/Pricing';
@@ -8,12 +8,8 @@ import Footer from '../src/components/Footer';
 
 export default function Home() {
     return (
-        <div>
-            <Head>
-                <title>Emigrapp</title>
-                <meta name="description" content="Acompañamos todo tu proceso de emigración." />
-                <link rel="icon" href="/icon.ico" />
-            </Head>
+        <div className='min-h-screen flex flex-col'>
+            <Head />
             <Header />
             <main>
                 <About />
