@@ -16,7 +16,6 @@ export default function Home() {
                 <CallToAction />
                 <Pricing />
                 <Testimonials />
-                <CallToAction />
             </main>
             <Footer />
         </div>

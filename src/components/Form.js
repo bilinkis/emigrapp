@@ -16,7 +16,6 @@ const Form = () => {
         email: '',
         age: '',
         employmentStatus: '',
-        migrationReason: [],
         documentation: [],
         additionalInfo: '',
         documents: {},
@@ -167,45 +166,6 @@ const Form = () => {
                                 <label htmlFor="student">Estudiante</label>
                             </div>
                         </div>
-                        <div className="mb-4">
-                            <label className="block text-gray-700 mb-2">Razones para Emigrar</label>
-                            <div className="flex items-center mb-2">
-                                <input
-                                    type="checkbox"
-                                    id="work"
-                                    name="migrationReason"
-                                    value="Trabajo"
-                                    checked={formData.migrationReason.includes('Trabajo')}
-                                    onChange={handleChange}
-                                    className="mr-2"
-                                />
-                                <label htmlFor="work">Trabajo</label>
-                            </div>
-                            <div className="flex items-center mb-2">
-                                <input
-                                    type="checkbox"
-                                    id="family"
-                                    name="migrationReason"
-                                    value="Familia"
-                                    checked={formData.migrationReason.includes('Familia')}
-                                    onChange={handleChange}
-                                    className="mr-2"
-                                />
-                                <label htmlFor="family">Familia</label>
-                            </div>
-                            <div className="flex items-center mb-2">
-                                <input
-                                    type="checkbox"
-                                    id="lifestyle"
-                                    name="migrationReason"
-                                    value="Cambio de Estilo de Vida"
-                                    checked={formData.migrationReason.includes('Cambio de Estilo de Vida')}
-                                    onChange={handleChange}
-                                    className="mr-2"
-                                />
-                                <label htmlFor="lifestyle">Cambio de Estilo de Vida</label>
-                            </div>
-                        </div>
 
                         <div className="mb-4">
                             <label className="block text-gray-700 mb-2">Tienes algún familiar directo (padres, abuelos, bisabuelos) que hayan nacido en España o tengan nacionalidad Española?</label>
@@ -298,7 +258,7 @@ const Form = () => {
             ) : (
                 <>
                     <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-8" onClick={() => { setFormSent(false); setIsLoading(false); setPaid(false); setUploaded(false); setProgress(0) }}>Volver al formulario</button>
-                    {(formData.documentation.length === 0 && formData.family === 'true' && formData.employmentStatus !== "Student" && !paid) ? (
+                    {(formData.documentation.length === 0 && formData.family === 'true' && !paid) ? (
                         <>
                             <h2 className='text-2xl font-bold mb-6 text-center mt-12'>Tu caso es complejo, te recomendamos contratar nuestro plan Full.</h2>
                             <Pricing route={router.pathname} suggested="full" setPaid={setPaid} />
@@ -316,7 +276,7 @@ const Form = () => {
                         <>
                             <Upload progress={progress} isLoading={isLoading} />
                         </>
-                    ) : (formData.family === "false" || formData.employmentStatus === "Student") ? (
+                    ) : (formData.family === "false") ? (
                         <>
                             <h2 className="text-2xl font-bold mb-6 text-center mt-12">Por el momento no podremos ayudarte, te enviaremos novedades a tu email cuando puedas usar Emigrapp. Gracias!</h2>
 

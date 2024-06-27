@@ -13,9 +13,36 @@ const userStatus = {
             completed: false,
             icon: 'fa-plane-departure',
             subSteps: [
-                { id: 1.1, step: 'Enviar solicitud', completed: true },
-                { id: 1.2, step: 'Asistir a la entrevista', completed: false },
-                { id: 1.3, step: 'Obtener aprobación', completed: false },
+                {
+                    id: 1.1,
+                    step: 'Enviar solicitud',
+                    completed: false,
+                    instructions: [
+                        'Rellena el formulario de solicitud de visa.',
+                        'Reúne los documentos necesarios (pasaporte, fotos, etc.).',
+                        'Envía la solicitud a la embajada correspondiente.'
+                    ]
+                },
+                {
+                    id: 1.2,
+                    step: 'Asistir a la entrevista',
+                    completed: false,
+                    instructions: [
+                        'Programa una cita para la entrevista en la embajada.',
+                        'Prepárate para la entrevista, revisa posibles preguntas.',
+                        'Asiste a la entrevista en la fecha y hora programadas.'
+                    ]
+                },
+                {
+                    id: 1.3,
+                    step: 'Obtener aprobación',
+                    completed: false,
+                    instructions: [
+                        'Espera la respuesta de la embajada.',
+                        'Recibe una notificación sobre la decisión de tu visa.',
+                        'Si es aprobada, recoge tu visa en la embajada.'
+                    ]
+                },
             ],
         },
         {
@@ -24,9 +51,36 @@ const userStatus = {
             completed: false,
             icon: 'fa-suitcase-rolling',
             subSteps: [
-                { id: 2.1, step: 'Reservar vuelos', completed: false },
-                { id: 2.2, step: 'Encontrar alojamiento', completed: false },
-                { id: 2.3, step: 'Empacar pertenencias', completed: false },
+                {
+                    id: 2.1,
+                    step: 'Reservar vuelos',
+                    completed: false,
+                    instructions: [
+                        'Investiga las aerolíneas y opciones de vuelo.',
+                        'Elige las fechas y horarios que mejor se adapten a tu plan.',
+                        'Reserva y paga tus boletos de avión.'
+                    ]
+                },
+                {
+                    id: 2.2,
+                    step: 'Encontrar alojamiento',
+                    completed: false,
+                    instructions: [
+                        'Busca opciones de alojamiento en tu destino.',
+                        'Contacta a los propietarios o agentes inmobiliarios.',
+                        'Confirma y reserva tu alojamiento.'
+                    ]
+                },
+                {
+                    id: 2.3,
+                    step: 'Empacar pertenencias',
+                    completed: false,
+                    instructions: [
+                        'Haz una lista de todas las cosas que necesitas empacar.',
+                        'Consigue cajas y materiales de embalaje.',
+                        'Empaca tus pertenencias y etiquétalas correctamente.'
+                    ]
+                },
             ],
         },
         {
@@ -35,9 +89,36 @@ const userStatus = {
             completed: false,
             icon: 'fa-file-alt',
             subSteps: [
-                { id: 3.1, step: 'Obtener copias de documentos importantes', completed: false },
-                { id: 3.2, step: 'Traducir documentos', completed: false },
-                { id: 3.3, step: 'Notarizar documentos', completed: false },
+                {
+                    id: 3.1,
+                    step: 'Obtener copias de documentos importantes',
+                    completed: false,
+                    instructions: [
+                        'Identifica los documentos importantes que necesitas.',
+                        'Haz copias físicas y digitales de estos documentos.',
+                        'Organiza las copias y guárdalas en un lugar seguro.'
+                    ]
+                },
+                {
+                    id: 3.2,
+                    step: 'Traducir documentos',
+                    completed: false,
+                    instructions: [
+                        'Encuentra un traductor certificado.',
+                        'Envía los documentos para su traducción.',
+                        'Recibe y revisa las traducciones para asegurarte de que sean correctas.'
+                    ]
+                },
+                {
+                    id: 3.3,
+                    step: 'Notarizar documentos',
+                    completed: false,
+                    instructions: [
+                        'Localiza una notaría cerca de ti.',
+                        'Haz una cita o visita la notaría.',
+                        'Firma y notariza tus documentos.'
+                    ]
+                },
             ],
         },
         {
@@ -46,13 +127,41 @@ const userStatus = {
             completed: false,
             icon: 'fa-home',
             subSteps: [
-                { id: 4.1, step: 'Notificar al propietario actual', completed: false },
-                { id: 4.2, step: 'Notificar al banco', completed: false },
-                { id: 4.3, step: 'Notificar a los proveedores de servicios', completed: false },
+                {
+                    id: 4.1,
+                    step: 'Notificar al propietario actual',
+                    completed: false,
+                    instructions: [
+                        'Informa a tu propietario sobre tu mudanza.',
+                        'Organiza una inspección de salida si es necesario.',
+                        'Devuelve las llaves y resuelve cualquier pendiente.'
+                    ]
+                },
+                {
+                    id: 4.2,
+                    step: 'Notificar al banco',
+                    completed: false,
+                    instructions: [
+                        'Informa a tu banco sobre tu mudanza.',
+                        'Actualiza tu dirección y detalles de contacto.',
+                        'Asegúrate de que todos los pagos y servicios bancarios estén en orden.'
+                    ]
+                },
+                {
+                    id: 4.3,
+                    step: 'Notificar a los proveedores de servicios',
+                    completed: false,
+                    instructions: [
+                        'Haz una lista de todos tus proveedores de servicios.',
+                        'Informa a cada proveedor sobre tu mudanza.',
+                        'Organiza la cancelación o transferencia de los servicios.'
+                    ]
+                },
             ],
         },
     ],
 };
+
 
 const Dashboard = () => {
     const [status, setStatus] = useState(null);
