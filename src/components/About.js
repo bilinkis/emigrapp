@@ -5,24 +5,23 @@ import { PrevArrow, NextArrow } from './CustomArrows';
 const features = [
     {
         icon: FaPassport,
+        title: "Obtené tu ciudadanía online",
+        description: "Ahorrá tiempo y dinero haciendolo con Emigrapp."
+    },
+    {
+        icon: FaPassport,
         title: "Información sobre visas y permisos",
         description: "Mantente actualizado con la información más reciente."
     },
     {
-        icon: FaUserTie,
-        title: "Asesoramiento personalizado",
-        description: "Recibe ayuda personalizada para tu proceso de emigración."
-    },
-
-    {
         icon: FaMapMarkedAlt,
-        title: "Guías detalladas",
-        description: "Accede a guías paso a paso para tu emigración."
+        title: "Checklist  y alertas",
+        description: "No te olvides de ningún paso durante el proceso."
     },
     {
         icon: FaHome,
         title: "Soporte en la búsqueda de empleo y alojamiento",
-        description: "Encuentra trabajo y lugar para vivir en tu nuevo destino."
+        description: "Pronto encontrá trabajo y lugar para vivir en tu nuevo destino."
     }
 ];
 
