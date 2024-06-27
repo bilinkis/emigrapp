@@ -5,7 +5,6 @@ import Pricing from '../src/components/Pricing';
 import Testimonials from '../src/components/Testimonials';
 import CallToAction from '../src/components/CallToAction';
 import Footer from '../src/components/Footer';
-import Cta from '../src/components/Cta';
 
 export default function Home() {
     return (
@@ -18,7 +17,7 @@ export default function Home() {
             <Header />
             <main>
                 <About />
-                <Cta />
+                <CallToAction />
                 <Pricing />
                 <Testimonials />
                 <CallToAction />
