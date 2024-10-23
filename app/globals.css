@@ -16,7 +16,7 @@ html {
 }
 
 .pricing-card ul {
-  flex-grow: 1;
+  flex-grow: 0;
 }
 
 @media (min-width: 640px) {
