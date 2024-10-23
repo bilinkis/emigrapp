@@ -5,7 +5,7 @@ import Form from "../src/components/Form";
 
 export default function Diagnostico() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col justify-between">
       <Head />
       <Header />
       <main className="flex-grow">
