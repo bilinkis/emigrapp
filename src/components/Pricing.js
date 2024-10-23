@@ -38,14 +38,6 @@ const Pricing = ({ route, suggested, setPaid }) => {
             </div>
           )}
         </div>
-        {route !== "/diagnostico" && (
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-8">
-            <a href="/diagnostico">
-              No estás seguro/a de si tenes la documentación necesaria para usar
-              Emigrapp? Realizá el Autodiagnóstico ahora!
-            </a>
-          </button>
-        )}
       </div>
     </section>
   );
